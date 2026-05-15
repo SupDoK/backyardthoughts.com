@@ -4,9 +4,10 @@ description: >-
   A personal corner of the internet — recipes, beauty notes, places I eat,
   and the small everyday thoughts that grow in the backyard of my mind.
 author: You
-url: "https://backyardthoughts.com"
-baseurl: ""  # leave empty for user/org GitHub Pages (username.github.io) or set to "/repo-name" for project pages
-
+#url: "https://backyardthoughts.com"
+#baseurl: ""  # leave empty for user/org GitHub Pages (username.github.io) or set to "/repo-name" for project pages
+url: "https://supdok.github.io"
+baseurl: "/backyardthoughts.com"
 # Build settings
 markdown: kramdown
 highlighter: rouge
