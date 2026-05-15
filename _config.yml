@@ -6,8 +6,8 @@ description: >-
 author: You
 #url: "https://backyardthoughts.com"
 #baseurl: ""  # leave empty for user/org GitHub Pages (username.github.io) or set to "/repo-name" for project pages
-url: "https://supdok.github.io"
-baseurl: "/backyardthoughts.com"
+url: "http://backyard-thoughts.com"
+baseurl: ""
 # Build settings
 markdown: kramdown
 highlighter: rouge
