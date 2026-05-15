@@ -1,0 +1,51 @@
+<footer class="site-footer">
+  <div class="footer-flowers" aria-hidden="true">
+    <svg viewBox="0 0 600 80" preserveAspectRatio="none">
+      <g fill="#A8C76C">
+        <path d="M0,80 Q30,60 60,80 T120,80 T180,80 T240,80 T300,80 T360,80 T420,80 T480,80 T540,80 T600,80 Z"/>
+      </g>
+      <g class="footer-flower-row">
+        <circle cx="60" cy="55" r="3" fill="#F5D547"/>
+        <circle cx="60" cy="48" r="3.5" fill="#EDB9CC"/>
+        <circle cx="55" cy="53" r="3.5" fill="#EDB9CC"/>
+        <circle cx="65" cy="53" r="3.5" fill="#EDB9CC"/>
+        <circle cx="58" cy="58" r="3.5" fill="#EDB9CC"/>
+        <circle cx="62" cy="58" r="3.5" fill="#EDB9CC"/>
+
+        <circle cx="180" cy="58" r="3" fill="#5A3E2B"/>
+        <g transform="translate(180 51)">
+          <ellipse cx="0" cy="-4" rx="2.5" ry="5" fill="#F5D547"/>
+          <ellipse cx="3.8" cy="-1.2" rx="2.5" ry="5" fill="#F5D547" transform="rotate(72)"/>
+          <ellipse cx="2.4" cy="3.3" rx="2.5" ry="5" fill="#F5D547" transform="rotate(144)"/>
+          <ellipse cx="-2.4" cy="3.3" rx="2.5" ry="5" fill="#F5D547" transform="rotate(216)"/>
+          <ellipse cx="-3.8" cy="-1.2" rx="2.5" ry="5" fill="#F5D547" transform="rotate(288)"/>
+        </g>
+
+        <circle cx="320" cy="62" r="2.5" fill="#F5D547"/>
+        <g fill="#fff" stroke="#A8C76C" stroke-width="0.4">
+          <ellipse cx="320" cy="55" rx="2" ry="4"/>
+          <ellipse cx="324" cy="58" rx="2" ry="4" transform="rotate(60 324 58)"/>
+          <ellipse cx="324" cy="65" rx="2" ry="4" transform="rotate(120 324 65)"/>
+          <ellipse cx="320" cy="68" rx="2" ry="4"/>
+          <ellipse cx="316" cy="65" rx="2" ry="4" transform="rotate(60 316 65)"/>
+          <ellipse cx="316" cy="58" rx="2" ry="4" transform="rotate(120 316 58)"/>
+        </g>
+
+        <g transform="translate(460 56)">
+          <ellipse cx="0" cy="-3" rx="3" ry="5" fill="#E76F5A"/>
+          <ellipse cx="2.8" cy="2" rx="3" ry="5" fill="#E76F5A" transform="rotate(120 2.8 2)"/>
+          <ellipse cx="-2.8" cy="2" rx="3" ry="5" fill="#E76F5A" transform="rotate(-120 -2.8 2)"/>
+          <circle cx="0" cy="0" r="1.5" fill="#5A3E2B"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="footer-inner">
+    <p class="footer-line">© {{ site.time | date: '%Y' }} {{ site.title }}. Grown slowly, with sunlight.</p>
+    <p class="footer-meta">
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@backyardthoughts.com">say hi</a>
+    </p>
+  </div>
+</footer>

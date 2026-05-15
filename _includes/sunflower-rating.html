@@ -1,0 +1,44 @@
+{%- comment -%}
+  Renders a 1–5 sunflower rating.
+  Inputs:
+    include.rating — int 1..5
+    include.small  — bool, optional, smaller variant
+{%- endcomment -%}
+{% assign rating = include.rating | plus: 0 %}
+{% if rating < 1 %}{% assign rating = 1 %}{% endif %}
+{% if rating > 5 %}{% assign rating = 5 %}{% endif %}
+<span class="sunflower-rating{% if include.small %} sunflower-rating--small{% endif %}" aria-label="{{ rating }} out of 5 sunflowers">
+  {% for i in (1..5) %}
+    {% if i <= rating %}
+      <svg class="sunflower sunflower--on" viewBox="0 0 32 32" aria-hidden="true">
+        <g transform="translate(16 16)">
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(45)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(135)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(225)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(270)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" fill="#F5D547" transform="rotate(315)"/>
+          <circle cx="0" cy="0" r="5" fill="#5A3E2B"/>
+          <circle cx="-1.4" cy="-1.4" r="1" fill="#7A5635"/>
+          <circle cx="1.4" cy="1.4" r="1" fill="#7A5635"/>
+        </g>
+      </svg>
+    {% else %}
+      <svg class="sunflower sunflower--off" viewBox="0 0 32 32" aria-hidden="true">
+        <g transform="translate(16 16)" fill="none" stroke="#C9B89A" stroke-width="1.1">
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(45)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(135)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(225)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(270)"/>
+          <ellipse cx="0" cy="-9" rx="3.2" ry="7" transform="rotate(315)"/>
+          <circle cx="0" cy="0" r="5"/>
+        </g>
+      </svg>
+    {% endif %}
+  {% endfor %}
+</span>

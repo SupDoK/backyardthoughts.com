@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+{%- include head.html -%}
+<body class="page page--{{ page.layout | default: 'default' }}{% if page.category %} page--{{ page.category }}{% endif %}">
+  <div class="paper-grain" aria-hidden="true"></div>
+  {%- include header.html -%}
+  <main class="site-main">
+    {{ content }}
+  </main>
+  {%- include footer.html -%}
+  <div id="cursor-flowers-root" aria-hidden="true"></div>
+  <script src="{{ '/assets/js/cursor-flowers.js' | relative_url }}" defer></script>
+</body>
+</html>

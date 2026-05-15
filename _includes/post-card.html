@@ -1,0 +1,35 @@
+{%- comment -%}
+  Renders one post card.
+  Inputs:
+    include.post — a collection item (e.g. recipes, thoughts, …)
+{%- endcomment -%}
+{% assign post = include.post %}
+<article class="post-card post-card--{{ post.category }}{% if post.subcategory %} post-card--sub-{{ post.subcategory }}{% endif %}">
+  {% if post.cover_image %}
+    <a href="{{ post.url | relative_url }}" class="card-image-link">
+      <div class="card-image" style="background-image: url('{{ post.cover_image | relative_url }}');"></div>
+    </a>
+  {% endif %}
+  <div class="card-body">
+    <p class="card-meta">
+      <span class="card-category">{{ post.category_label }}</span>
+      {% if post.subcategory %}
+        {% assign sub = site.thought_subcategories | where: "slug", post.subcategory | first %}
+        {% if sub %}<span class="card-sub">· {{ sub.label }}</span>{% endif %}
+      {% endif %}
+      <span class="card-date">· {{ post.date | date: "%B %-d, %Y" }}</span>
+    </p>
+    <h3 class="card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {% if post.subcategory == "movie-suggestions" and post.sunflowers %}
+        {% include sunflower-rating.html rating=post.sunflowers small=true %}
+      {% endif %}
+    </h3>
+    {% if post.excerpt %}<p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>{% endif %}
+    {% if post.tags and post.tags.size > 0 %}
+      <ul class="card-tags">
+        {% for tag in post.tags %}<li>{{ tag }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</article>

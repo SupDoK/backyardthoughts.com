@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<article class="post post--{{ page.category }}{% if page.subcategory %} post--sub-{{ page.subcategory }}{% endif %}">
+  <header class="post-head">
+    <p class="post-breadcrumb">
+      <a href="{{ '/' | append: page.category | append: '/' | relative_url }}">{{ page.category_label }}</a>
+      {% if page.subcategory %}
+        {% assign sub = site.thought_subcategories | where: "slug", page.subcategory | first %}
+        {% if sub %}
+          &nbsp;·&nbsp;
+          <a href="{{ '/thoughts/' | append: sub.slug | append: '/' | relative_url }}">{{ sub.label }}</a>
+        {% endif %}
+      {% endif %}
+    </p>
+    <h1 class="post-title">
+      {{ page.title }}
+      {% if page.subcategory == "movie-suggestions" and page.sunflowers %}
+        {% include sunflower-rating.html rating=page.sunflowers %}
+      {% endif %}
+    </h1>
+    <p class="post-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+    {% if page.cover_image %}
+      <div class="post-cover">
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_alt | default: page.title }}" loading="lazy">
+        {% if page.cover_caption %}<p class="post-cover-caption">{{ page.cover_caption }}</p>{% endif %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  {% if page.tags and page.tags.size > 0 %}
+    <footer class="post-foot">
+      <p class="post-tags-label">tags</p>
+      <ul class="post-tags">
+        {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+      </ul>
+    </footer>
+  {% endif %}
+</article>
+
+{% comment %} Show a few related posts from the same category {% endcomment %}
+{% assign related = site[page.category] | where_exp: "p", "p.url != page.url" | sort: "date" | reverse %}
+{% if related and related.size > 0 %}
+  <section class="related">
+    <h2 class="related-title">More from {{ page.category_label }}</h2>
+    <div class="card-grid card-grid--related">
+      {% for p in related limit: 3 %}
+        {% include post-card.html post=p %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,94 @@
+title: Backyard Thoughts
+tagline: A meadow of recipes, beauty, and small everyday things
+description: >-
+  A personal corner of the internet — recipes, beauty notes, places I eat,
+  and the small everyday thoughts that grow in the backyard of my mind.
+author: You
+url: "https://backyardthoughts.com"
+baseurl: ""  # leave empty for user/org GitHub Pages (username.github.io) or set to "/repo-name" for project pages
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:collection/:path/
+
+# Sass
+sass:
+  style: compressed
+
+# Collections — each one is a "category folder"
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:path/
+  beauty:
+    output: true
+    permalink: /beauty/:path/
+  eats:
+    output: true
+    permalink: /eats/:path/
+  thoughts:
+    output: true
+    permalink: /thoughts/:path/
+
+# Per-collection defaults so you only need a tiny front matter on each post
+defaults:
+  - scope:
+      path: ""
+      type: "recipes"
+    values:
+      layout: post
+      category: recipes
+      category_label: "Recipes"
+  - scope:
+      path: ""
+      type: "beauty"
+    values:
+      layout: post
+      category: beauty
+      category_label: "Beauty"
+  - scope:
+      path: ""
+      type: "eats"
+    values:
+      layout: post
+      category: eats
+      category_label: "Places to Eat"
+  - scope:
+      path: ""
+      type: "thoughts"
+    values:
+      layout: post
+      category: thoughts
+      category_label: "Everyday Thoughts"
+
+# Sub-categories under "thoughts" — used to drive subcategory pages and labels
+thought_subcategories:
+  - slug: tiny-luxuries
+    label: "Tiny Luxuries"
+    blurb: "Small soft things that make a day feel larger."
+  - slug: adoro
+    label: "Adoro"
+    blurb: "Little obsessions, lovingly catalogued."
+  - slug: my-go-to-orders
+    label: "My Go-To Orders"
+    blurb: "What I order at the places I love."
+  - slug: let-me-explain
+    label: "Let Me Explain"
+    blurb: "Thoughts that needed more than a sentence."
+  - slug: movie-suggestions
+    label: "Movie Suggestions"
+    blurb: "Films I loved, rated in sunflowers."
+
+# Plugins (GitHub Pages whitelisted)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .sass-cache
+  - .jekyll-cache

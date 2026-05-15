@@ -1,0 +1,46 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <g transform="translate(24 24)">
+          <ellipse cx="0" cy="-12" rx="5" ry="8" fill="#EDB9CC"/>
+          <ellipse cx="0" cy="12" rx="5" ry="8" fill="#EDB9CC"/>
+          <ellipse cx="-12" cy="0" rx="8" ry="5" fill="#EDB9CC"/>
+          <ellipse cx="12" cy="0" rx="8" ry="5" fill="#EDB9CC"/>
+          <ellipse cx="-8.5" cy="-8.5" rx="5" ry="7" fill="#F5D9E3" transform="rotate(-45 -8.5 -8.5)"/>
+          <ellipse cx="8.5" cy="-8.5" rx="5" ry="7" fill="#F5D9E3" transform="rotate(45 8.5 -8.5)"/>
+          <ellipse cx="-8.5" cy="8.5" rx="5" ry="7" fill="#F5D9E3" transform="rotate(45 -8.5 8.5)"/>
+          <ellipse cx="8.5" cy="8.5" rx="5" ry="7" fill="#F5D9E3" transform="rotate(-45 8.5 8.5)"/>
+          <circle cx="0" cy="0" r="6" fill="#F5D547"/>
+          <circle cx="0" cy="0" r="6" fill="url(#brandTexture)" opacity="0.4"/>
+        </g>
+        <defs>
+          <radialGradient id="brandTexture">
+            <stop offset="0%" stop-color="#C29A2A" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#8B6914" stop-opacity="0.6"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-title">Backyard</span>
+        <span class="brand-subtitle">thoughts</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="{{ '/recipes/' | relative_url }}">Recipes</a></li>
+        <li><a href="{{ '/beauty/' | relative_url }}">Beauty</a></li>
+        <li><a href="{{ '/eats/' | relative_url }}">Places to Eat</a></li>
+        <li class="has-submenu">
+          <a href="{{ '/thoughts/' | relative_url }}">Everyday Thoughts <span class="caret" aria-hidden="true">↓</span></a>
+          <ul class="submenu">
+            {% for sub in site.thought_subcategories %}
+              <li><a href="{{ '/thoughts/' | append: sub.slug | append: '/' | relative_url }}">{{ sub.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<section class="category-hero category-hero--{{ page.category }}">
+  <p class="category-eyebrow">{% if page.subcategory %}Everyday Thoughts{% else %}A corner of the garden{% endif %}</p>
+  <h1 class="category-title">{{ page.heading }}</h1>
+  {% if page.blurb %}<p class="category-blurb">{{ page.blurb }}</p>{% endif %}
+</section>
+
+{% assign posts = site[page.category] %}
+{% if page.subcategory %}
+  {% assign posts = posts | where: "subcategory", page.subcategory %}
+{% endif %}
+{% assign posts = posts | sort: "date" | reverse %}
+
+{% if posts.size > 0 %}
+  <div class="card-grid">
+    {% for post in posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="empty-state">Nothing here yet — the seeds are still underground.</p>
+{% endif %}
+
+{% if page.category == "thoughts" and page.subcategory == nil %}
+  <section class="subcat-strip">
+    <h2 class="subcat-strip-title">Wander into a subcategory</h2>
+    <ul class="subcat-list">
+      {% for sub in site.thought_subcategories %}
+        <li class="subcat-card">
+          <a href="{{ '/thoughts/' | append: sub.slug | append: '/' | relative_url }}">
+            <span class="subcat-label">{{ sub.label }}</span>
+            <span class="subcat-blurb">{{ sub.blurb }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

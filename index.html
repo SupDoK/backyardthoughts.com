@@ -1,0 +1,46 @@
+---
+layout: default
+title: Home
+description: Recipes, beauty notes, places I eat, and the small everyday thoughts that grow in the backyard of my mind.
+---
+
+<section class="home-hero">
+  <div class="home-hero-text">
+    <span class="home-eyebrow">welcome to the backyard</span>
+    <h1 class="home-title">A little garden of <em>thoughts</em>, lovingly tended.</h1>
+    <p class="home-tagline">Recipes I keep making, beauty I keep coming back to, places that fed me well, and the small things I notice on slow afternoons.</p>
+  </div>
+  <div class="home-hero-art">
+    <img src="{{ '/assets/images/backyard.png' | relative_url }}" alt="A painterly meadow with pink wisteria, sunflowers, daisies, and a blue sky.">
+  </div>
+</section>
+
+{%- comment -%} Latest across all collections {%- endcomment -%}
+{% assign all_posts = site.recipes | concat: site.beauty | concat: site.eats | concat: site.thoughts | sort: "date" | reverse %}
+
+<h2 class="home-section-title">Lately <small>fresh from the garden</small></h2>
+<div class="card-grid">
+  {% for post in all_posts limit:6 %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</div>
+
+<h2 class="home-section-title">Wander somewhere <small>pick a path</small></h2>
+<ul class="subcat-list">
+  <li class="subcat-card"><a href="{{ '/recipes/' | relative_url }}">
+    <span class="subcat-label">Recipes</span>
+    <span class="subcat-blurb">Things I cook on repeat.</span>
+  </a></li>
+  <li class="subcat-card"><a href="{{ '/beauty/' | relative_url }}">
+    <span class="subcat-label">Beauty</span>
+    <span class="subcat-blurb">Quiet notes on what works.</span>
+  </a></li>
+  <li class="subcat-card"><a href="{{ '/eats/' | relative_url }}">
+    <span class="subcat-label">Places to Eat</span>
+    <span class="subcat-blurb">Restaurants and tables I love.</span>
+  </a></li>
+  <li class="subcat-card"><a href="{{ '/thoughts/' | relative_url }}">
+    <span class="subcat-label">Everyday Thoughts</span>
+    <span class="subcat-blurb">Tiny luxuries, obsessions, films, and explanations.</span>
+  </a></li>
+</ul>
