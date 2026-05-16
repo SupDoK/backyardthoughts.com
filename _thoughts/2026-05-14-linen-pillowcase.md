@@ -1,13 +1,16 @@
 ---
-title: A Linen Pillowcase
-date: 2026-05-14
+title: My New Pink Headphones
+date: 2026-05-16
 subcategory: tiny-luxuries
 tags: [home, sleep, small things]
-excerpt: Forty euros, washed three times, and now I am unreasonable about it.
+cover_image: /assets/images/headphonesa.webp
+excerpt: It's pink. What else? Oh yeah, also great music. 
 ---
 
-I bought a linen pillowcase in March. It was forty euros, which felt absurd, and I almost returned it twice before I'd even washed it.
+I bought a new pair of headphones and I am obsessed. The Nothing Headphones a. In pink, duh. 
 
-I have washed it three times now and I am, frankly, unreasonable about it. It feels cool in the way the inside of a tent feels cool in summer. It rumples in the right places. It makes the bed look like it belongs to a person who has their life together, which I would like very much to be true.
+It's 149euros, cheaper than a lot of things out there right now and let me tell you, I LOVE THEM. They are light, the sound quality is really good, the app is easy to use and has a lot of different things you can change. And it's pink. If your were wondering, yes there are other colors. White, black, yellow and pink. 
 
-The pillowcase did not change my life. It changed about four square inches of my life. But those four square inches are very, very nice.
+It depends on what you listen to of course. My boyfriend listens to hardcore, psytranc etc and he likes a headphones that defines more those sounds. Not my type of music btw. I am more of a pop gal. 
+
+This tiny luxury that I gave myself really improved my everyday. My old headphones wouldn't connect to my PC, my Ipad or work computer. But the new ones connect even to the TV (yes I just arrived in 2026, hello). So happy about them. 
