@@ -10,6 +10,6 @@ Not because I am different or my order is special. Simply because I like it, I f
 
 - **Standard order:** Iced Matcha Latte with Oatmilk.
 - **Cold day order:** Standard warm Matcha Latte, guess what, with Oatmilk. 
-- **When I fell boogie order:** Strawberry Matcha Latte with Oatmilk.
+- **When I feel boogie order:** Strawberry Matcha Latte with Oatmilk.
 
 There is no reason to vary this. I have varied it. The variations are not for me and do not compete. I am a simple animal that loves habits.
