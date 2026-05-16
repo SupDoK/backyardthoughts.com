@@ -2,6 +2,7 @@
 title: Brasserie Rumour - Leiden, NL
 date: 2026-05-16
 tags: [leiden, steak, dinner, wine]
+sunflowers: 5
 cover_image: /assets/images/brasserie.jpeg
 cover_alt: Two of the dishes we ate.
 excerpt: An amazing brasserie, with nice and caring staff and good food. 
