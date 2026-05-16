@@ -44,3 +44,97 @@
     </nav>
   </div>
 </header>
+
+<nav class="mobile-bottom-nav" aria-label="Main navigation">
+  <a class="mobile-tab" href="{{ '/recipes/' | relative_url }}" data-section="recipes">
+    <svg class="mobile-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 2v7c0 1.1.9 2 2 2h.5v11"/>
+      <path d="M3 7h5"/>
+      <path d="M15 2c0 0 2.5 3 2.5 6.5S15 12 15 12v10"/>
+      <path d="M18 2v20"/>
+    </svg>
+    <span>Recipes</span>
+  </a>
+
+  <a class="mobile-tab" href="{{ '/beauty/' | relative_url }}" data-section="beauty">
+    <svg class="mobile-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/>
+      <path d="M19.5 15.5l.75 2.25 2.25.75-2.25.75-.75 2.25-.75-2.25-2.25-.75 2.25-.75z"/>
+      <path d="M4.5 3.5l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5z"/>
+    </svg>
+    <span>Beauty</span>
+  </a>
+
+  <a class="mobile-tab" href="{{ '/eats/' | relative_url }}" data-section="eats">
+    <svg class="mobile-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+    <span>Eats</span>
+  </a>
+
+  <button class="mobile-tab" id="thoughts-tab-btn" data-section="thoughts" aria-expanded="false" aria-controls="thoughts-sheet">
+    <svg class="mobile-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span>Thoughts</span>
+  </button>
+</nav>
+
+<div class="thoughts-sheet-overlay" id="thoughts-overlay" aria-hidden="true"></div>
+<div class="thoughts-sheet" id="thoughts-sheet" role="dialog" aria-modal="true" aria-label="Everyday Thoughts">
+  <div class="thoughts-sheet-handle" role="presentation"></div>
+  <p class="thoughts-sheet-eyebrow">browse</p>
+  <h2 class="thoughts-sheet-title">Everyday Thoughts</h2>
+  <ul class="thoughts-sheet-list">
+    <li><a href="{{ '/thoughts/' | relative_url }}">All Thoughts</a></li>
+    {% for sub in site.thought_subcategories %}
+      <li><a href="{{ '/thoughts/' | append: sub.slug | append: '/' | relative_url }}">{{ sub.label }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+(function () {
+  // Active tab by URL
+  var path = window.location.pathname;
+  document.querySelectorAll('.mobile-tab[data-section]').forEach(function (tab) {
+    var section = tab.getAttribute('data-section');
+    if (section && path.indexOf('/' + section + '/') !== -1) {
+      tab.classList.add('is-active');
+    }
+  });
+
+  // Thoughts sheet toggle
+  var btn     = document.getElementById('thoughts-tab-btn');
+  var sheet   = document.getElementById('thoughts-sheet');
+  var overlay = document.getElementById('thoughts-overlay');
+  if (!btn || !sheet || !overlay) return;
+
+  function openSheet() {
+    sheet.classList.add('is-open');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    sheet.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', function () {
+    sheet.classList.contains('is-open') ? closeSheet() : openSheet();
+  });
+
+  overlay.addEventListener('click', closeSheet);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeSheet();
+  });
+})();
+</script>
