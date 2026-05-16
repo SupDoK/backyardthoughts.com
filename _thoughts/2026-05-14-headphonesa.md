@@ -7,7 +7,7 @@ cover_image: /assets/images/headphonesa.webp
 excerpt: It's pink. What else? Oh yeah, also great music. 
 ---
 
-I bought a new pair of headphones and I am obsessed. The "Nothing Headphones a". In pink, duh. 
+I bought a new pair of headphones and I am obsessed. The <span style="color:hotpink">"Nothing Headphones a"</span>. In pink, duh. 
 
 It's 149euros, cheaper than a lot of things out there right now and let me tell you, I LOVE THEM. They are light, the sound quality is really good, the app is easy to use and has a lot of different things you can change. And it's pink. If your were wondering, yes there are other colors. White, black, yellow.
 
